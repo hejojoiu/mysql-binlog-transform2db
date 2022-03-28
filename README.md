@@ -20,7 +20,7 @@ transform2db:
     password: *
     # 监听指定数据库
     schema: test
-    # 默认驱动名称为com.mysql.jdbc.Driver,如不冲突,无需设置
+    # 默认驱动名称为com.mysql.cj.jdbc.Driver,如不冲突,无需设置
     driver-name: com.mysql.jdbc.Driver
     # 指定表名称,支持多张表
     table:
