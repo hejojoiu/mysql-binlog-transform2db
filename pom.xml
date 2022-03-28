@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.heqizheng</groupId>
     <artifactId>mysql-binlog-transform2db</artifactId>
-    <version>1.0.0-Alpha</version>
+    <version>master</version>
     <name>mysql-binlog-transform2db</name>
     <description>mysql-binlog-transform2db project for Spring Boot</description>
 

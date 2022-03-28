@@ -1,0 +1,19 @@
+
+transform2db:
+  # 默认关闭监听事件,需要手动开启
+  open: false
+  # 监听数据源配置
+  datasource:
+    host: localhost
+    port: 3306
+    username: root
+    password: root
+    # 监听指定数据库
+    schema: test
+    # 默认驱动名称为com.mysql.cj.jdbc.Driver,如不冲突,无需设置
+    driver-name: com.mysql.jdbc.Driver
+    # 指定表名称,支持多张表
+    table:
+      - test_prometheus
+server:
+  port: 8080
