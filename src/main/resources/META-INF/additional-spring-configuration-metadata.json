@@ -1,0 +1,38 @@
+{
+  "properties": [
+    {
+      "name": "transform2db.open",
+      "type": "java.lang.String",
+      "description": "Description for transform2db.open."
+    },
+    {
+      "name": "transform2db.datasource.host",
+      "type": "java.lang.String",
+      "description": "Description for transform2db.datasource.host."
+    },
+    {
+      "name": "transform2db.datasource.port",
+      "type": "java.lang.String",
+      "description": "Description for transform2db.datasource.port."
+    },
+    {
+      "name": "transform2db.datasource.username",
+      "type": "java.lang.String",
+      "description": "Description for transform2db.datasource.username."
+    },
+    {
+      "name": "transform2db.datasource.password",
+      "type": "java.lang.String",
+      "description": "Description for transform2db.datasource.password."
+    },
+    {
+      "name": "transform2db.datasource.schema",
+      "type": "java.lang.String",
+      "description": "Description for transform2db.datasource.schema."
+    },
+    {
+      "name": "transform2db.datasource.table",
+      "type": "java.lang.String",
+      "description": "Description for transform2db.datasource.table."
+    }
+  ] }
