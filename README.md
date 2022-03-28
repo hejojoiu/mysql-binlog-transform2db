@@ -1,6 +1,6 @@
 # 工程简介
 基于github项目[mysql-binlog-connector-java](https://github.com/shyiko/mysql-binlog-connector-java)二次封装，
-通过监听binlog日志，解决多模块项目冗余字段更新不及时
+通过监听binlog日志，解决多模块项目冗余字段更新不及时，目前版本仅支持监听一个数据源下的一个数据库的多张表，所监听的数据库必须开启binlog日志。
 # 项目配置
 ```yaml
 transform2db:
@@ -20,7 +20,7 @@ transform2db:
     password: *
     # 监听指定数据库
     schema: test
-    # 默认驱动名称为com.mysql.jdbc.Driver,如不冲突,无需设置
+    # 默认驱动名称为com.mysql.cj.jdbc.Driver,如不冲突,无需设置
     driver-name: com.mysql.jdbc.Driver
     # 指定表名称,支持多张表
     table:
