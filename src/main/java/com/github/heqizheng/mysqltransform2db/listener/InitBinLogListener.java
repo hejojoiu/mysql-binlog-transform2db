@@ -34,29 +34,28 @@ public class InitBinLogListener implements CommandLineRunner {
         LOGGER.info("Initial properties：{}", dbProperties.toString());
         if (!dbProperties.isOpen()) {
             LOGGER.info("Transform2db not open");
-            return;
         } else {
             LOGGER.info("Transform2db start");
+            Transform2DBProperties.DataSource dataSource = dbProperties.getDataSource();
+            // 初始化监听器
+            MySQLBinLogListener listener = new MySQLBinLogListener(dbProperties);
+            // 获取table集合
+            List<String> tableList = dataSource.getTable();
+            if (CollectionUtil.isEmpty(tableList))
+                throw new IllegalArgumentException("TableList is empty");
+            // 注册监听
+            tableList.forEach(table -> {
+                LOGGER.info("Register listening information, register schema：" + dataSource.getSchema() + ", register table：" + table);
+                try {
+                    listener.regListener(dataSource, table, item -> {
+                        LOGGER.info("Listening logic processing");
+                    });
+                } catch (Exception e) {
+                    LOGGER.error("BinLog monitor exception：" + e);
+                }
+            });
+            // 多线程消费
+            listener.parse(dbProperties.getConsumerThreads(), dbProperties.getQueueSleep());
         }
-        Transform2DBProperties.DataSource dataSource = dbProperties.getDataSource();
-        // 初始化监听器
-        MySQLBinLogListener listener = new MySQLBinLogListener(dbProperties);
-        // 获取table集合
-        List<String> tableList = dataSource.getTable();
-        if (CollectionUtil.isEmpty(tableList))
-            throw new IllegalArgumentException("TableList is empty");
-        // 注册监听
-        tableList.forEach(table -> {
-            LOGGER.info("Register listening information, register schema：" + dataSource.getSchema() + ", register table：" + table);
-            try {
-                listener.regListener(dataSource, table, item -> {
-                    LOGGER.info("Listening logic processing");
-                });
-            } catch (Exception e) {
-                LOGGER.error("BinLog monitor exception：" + e);
-            }
-        });
-        // 多线程消费
-        listener.parse(dbProperties.getConsumerThreads(), dbProperties.getQueueSleep());
     }
 }
