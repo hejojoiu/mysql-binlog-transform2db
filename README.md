@@ -16,8 +16,8 @@ transform2db:
   datasource:
     host: localhost
     port: 3306
-    username: *
-    password: *
+    username: root
+    password: root
     # 监听指定数据库
     schema: test
     # 默认驱动名称为com.mysql.cj.jdbc.Driver,如不冲突,无需设置
