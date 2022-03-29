@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.heqizhengya</groupId>
     <artifactId>mysql-binlog-transform2db-java</artifactId>
-    <version>0.0.1-Alpha</version>
+    <version>v0.0.1-Alpha</version>
     <packaging>pom</packaging>
     <name>mysql-binlog-transform2db-java</name>
     <url>https://github.com/heqizhengya/mysql-binlog-transform2db</url>
